@@ -1,6 +1,5 @@
 # LolTer
 Instalacion
   Flask
-  
-  Python
-  
+    Instalar python 3.10.7
+    
