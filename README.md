@@ -1,0 +1,6 @@
+# LolTer
+Instalacion
+  Flask
+  
+  Python
+  
