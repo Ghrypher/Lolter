@@ -1,15 +1,6 @@
 <h1>Champs filtrados</h1>
-<form>
-    {{buscar}}
-    <button>buscar</button>
-</form>
-{% for champ in champs %}
-<div class="col-2">
-    <a id={{champ}}class="btn" href="champ.html" role="button">
-        <img class="rounded-4 img-fluid" src="assets/background.png">
-    </a>
-</div>
-{% endfor %}
+
+{% load static %}
 <!--<p>{{ grupos }}</p>-->
 <html>
     <head>
@@ -22,7 +13,7 @@
             <div class="col-6 ">
                 <div class="card bg-dark" style="margin-top: 50px;">
                     <a id="champ" class="btn" href="index.html" role="button">
-                        <img class="rounded-4 rounded mx-auto d-block" src="assets/banner.png">
+                        <img class="rounded-4 rounded mx-auto d-block" src="{% static 'assets/banner.png' %}">
                     </a>
                 </div>
             </div>
@@ -31,11 +22,11 @@
                     <div class="card-header bg-dark">
                         <div class="row" >
                             <div class="col-8 justify-content-left">
-                                <button id="top" class=" btn closing"><img class="img-fluid" src="assets/top_lane.png" /></button>
-                                <button id="jungla" class="btn closing"><img class="img-fluid" src="assets/jungla.png" /></button>
-                                <button id="mid" class="btn closing"><img class="img-fluid" src="assets/mid_lane.png" /></button>
-                                <button id="adc" class="btn closing"><img class="img-fluid" src="assets/bot_lane_adc.png" /></button>
-                                <button id="support" class="btn closing"><img class="img-fluid" src="assets/bot_lane_support.png" /></button>
+                                <button id="top" class=" btn closing"><img class="img-fluid" src="{% static 'assets/top_lane.png' %} /></button>
+                                <button id="jungla" class="btn closing"><img class="img-fluid" src="{% static 'assets/jungla.png' %} /></button>
+                                <button id="mid" class="btn closing"><img class="img-fluid" src="{% static 'assets/mid_lane.png' %} /></button>
+                                <button id="adc" class="btn closing"><img class="img-fluid" src="{% static 'assets/bot_lane_adc.png' %} /></button>
+                                <button id="support" class="btn closing"><img class="img-fluid" src="{% static 'assets/bot_lane_support.png' %} /></button>
                             </div>
                         <div class=" col-4 justify-content-right ">
                                 <div class="form-floating">
@@ -47,16 +38,13 @@
                     </div>
                     <div class="card-body ">
                         <div class="row justify-content-center">
+                            {% for champ in champs %}
                             <div class="col-2">
-                                <a id="champ" class="btn" href="champ.html" role="button">
+                                <a id={{champ}}class="btn" href="champ.html" role="button">
                                     <img class="rounded-4 img-fluid" src="assets/background.png">
                                 </a>
                             </div>
-                            <div class="col-2">
-                                <a id="champ" class="btn" href="#" role="button">
-                                    <img class="rounded-4 img-fluid" src="assets/background.png">
-                                </a>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>     
