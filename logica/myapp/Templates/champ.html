@@ -1,5 +1,6 @@
 <html>
     <head>
+        {% load static %}
         <title>LolTer</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
@@ -8,8 +9,8 @@
         <div class="row justify-content-center">
             <div class="col-6">
                 <div class="card bg-dark" style="margin-top: 50px;">
-                    <a id="champ" class="btn" href="index.html" role="button">
-                        <img class="rounded-4 rounded mx-auto d-block" src="assets/banner.png">
+                    <a id="champ" class="btn" href="/index" role="button">
+                        <img class="rounded-4 rounded mx-auto d-block" src="{% static 'assets/banner.png' %}">
                     </a>
                 </div>
             </div>
@@ -19,7 +20,7 @@
                         <div class="row" >
                             <div class="col-8 row">
                                 <div class="col-1">
-                                    <img class="img-fluid" src="assets/top_lane.png" />
+                                    <img class="img-fluid" src="{% static 'assets/top_lane.png' %}" />
                                 </div>
                                 <div class="col-4">
                                     <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="Top Laner">
@@ -35,12 +36,12 @@
                     <div class="card-body ">
                         <div class="row">
                             <div class="col-3">
-                                <img class="img-fluid rounded-3" src="assets/background.png" />
+                                <img class="img-fluid rounded-3" src="{% static 'assets/place_holder.png' %}" />
                             </div>
                             <div class="col-9" id="counters">
                                 <div class="row">
                                     <div class="col-2">
-                                        <button id="counter" class="btn closing"><img class="img-fluid rounded-5" src="assets/background.png" /></button>
+                                        <button id="counter" class="btn closing"><img class="img-fluid rounded-5" src="{% static 'assets/place_holder.png' %}" /></button>
                                     </div>
                                     <div class="col-10">
                                         <label class="form-control"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, quam atque cum ullam et consequuntur vel odio, rem recusandae voluptas velit eos perferendis. Inventore quo accusamus iusto dolorem. Nostrum perferendis, autem cumque placeat amet animi et dignissimos molestias. Unde, quis accusantium? Eaque laboriosam quia, minima necessitatibus, dolores id hic ullam illo labore odio assumenda ex rem ad! Tempora nemo veniam blanditiis voluptatum distinctio explicabo consectetur dicta natus. Voluptates quasi, eligendi reprehenderit quidem nihil illo eum consectetur! Temporibus maiores corporis mollitia accusamus magni et alias laborum veniam voluptates officiis explicabo iste quae recusandae veritatis maxime illum velit ipsam vitae, asperiores vel?

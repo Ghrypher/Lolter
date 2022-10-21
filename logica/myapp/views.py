@@ -7,17 +7,26 @@ from .forms import buscar
 #principal, y la pagina de counter, a la cual se accederia una vez clickeado en un champ, mostrando
 #toda la data sobre los counters de ese champ
 
-def hello(request):
+def index(request):
 
     #[11:14] Los filtros 
-    filtro_rol = 0
-    filtro_nombre = ""
+    rolChamp = 0
+    nombreChamp = ""
     #filtro_nombre = (request.GET["busqueda"])
-    grupo_champs = Champrol.objects.filter(Rol_id=filtro_rol).values_list("Champ_id")
-    grupos_filtrados = list(Champ.objects.filter(nombre__startswith=filtro_nombre, id__in=grupo_champs).values_list("nombre"))
-    Verdaderos_filtrados = []
-    for i in grupos_filtrados:
-        Verdaderos_filtrados.append(i[0])
+    cahmpsPorRol = Champrol.objects.filter(Rol_id = rolChamp).values_list("Champ_id")
+    champsPorRolYNombre = list(Champ.objects.filter(nombre__startswith = nombreChamp, id__in = cahmpsPorRol).values_list("nombre"))
+    listaNombreChamps = []
+    for champ in champsPorRolYNombre:
+        listaNombreChamps.append(champ[0])
+
+    listaChampsConFormato = []
+    orden = 0
+    for y in range(len(listaNombreChamps)//6):
+        columnaFormateada = []
+        for x in range(6):
+            columnaFormateada.append(listaNombreChamps[orden])
+            orden += 1
+        listaChampsConFormato.append(columnaFormateada)
 
     # return render_to_response(request,
     #   "index.html",
@@ -25,11 +34,11 @@ def hello(request):
     # )
     return render (request,"index.html",
     {
-       "champs":(Verdaderos_filtrados),
+       "champs":(listaChampsConFormato),
        "buscar":buscar()
 
     }
     )
 
 def champ(request):
-    return HttpResponse("ACA VAN MIS DATITOS UWU")
+    return render (request,"champ.html")
