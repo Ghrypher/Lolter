@@ -23,17 +23,24 @@ def index(request):
     print ("="*100)
     listaChampsConFormato = []
     orden = 0
-    for y in range(len(listaNombreChamps)//6):
+    fila = 6
+    columna = len(listaNombreChamps)//6
+    for y in range(columna):
         columnaFormateada = []
-        for x in range(6):
+        for x in range(fila):
             columnaFormateada.append(listaNombreChamps[orden])
             orden += 1
         listaChampsConFormato.append(columnaFormateada)
 
-    # return render_to_response(request,
-    #   "index.html",
-    #   {'grupos': grupos_filtrados},
-    # )
+    columnaFormateada = []
+    for x in range(len(listaNombreChamps) - columna * 6):
+        columnaFormateada.append(listaNombreChamps[orden])
+        orden += 1
+    listaChampsConFormato.append(columnaFormateada)
+
+
+
+
     return render (request,"index.html",
     {
        "champs":(listaChampsConFormato),
