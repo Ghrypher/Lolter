@@ -10,7 +10,7 @@ from .forms import buscar
 def index(request):
 
     #[11:14] Los filtros 
-    rolChamp = 5
+    rolChamp = 0
     nombreChamp = ""
     #filtro_nombre = (request.GET["busqueda"])
     champsPorRol = Champrol.objects.filter(Rol_id = rolChamp).values_list("Champ_id")
