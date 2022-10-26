@@ -10,15 +10,17 @@ from .forms import buscar
 def index(request):
 
     #[11:14] Los filtros 
-    rolChamp = 0
+    rolChamp = 5
     nombreChamp = ""
     #filtro_nombre = (request.GET["busqueda"])
-    cahmpsPorRol = Champrol.objects.filter(Rol_id = rolChamp).values_list("Champ_id")
-    champsPorRolYNombre = list(Champ.objects.filter(nombre__startswith = nombreChamp, id__in = cahmpsPorRol).values_list("nombre"))
+    champsPorRol = Champrol.objects.filter(Rol_id = rolChamp).values_list("Champ_id")
+    champsPorRolYNombre = list(Champ.objects.filter(nombre__startswith = nombreChamp, id__in = champsPorRol).values_list("nombre"))
     listaNombreChamps = []
     for champ in champsPorRolYNombre:
         listaNombreChamps.append(champ[0])
-
+    print ("="*100)
+    print (listaNombreChamps)
+    print ("="*100)
     listaChampsConFormato = []
     orden = 0
     for y in range(len(listaNombreChamps)//6):
