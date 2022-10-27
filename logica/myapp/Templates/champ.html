@@ -7,11 +7,13 @@
     </head>
     <body class="bg-dark bg-gradient overflow-hidden">
         <div class="row justify-content-center">
-            <div class="col-6">
+            <div class="col-6 ">
                 <div class="card bg-dark" style="margin-top: 50px;">
-                    <a id="champ" class="btn" href="/index" role="button">
-                        <img class="rounded-4 rounded mx-auto d-block" src="{% static 'assets/banner.png' %}">
-                    </a>
+                    <div class="row justify-content-center">
+                        <div class="card bg-light col-11">
+                            <a role="button" id="banner" href="/" class=" btn-light rounded-4"><img class="mx-auto d-block" src="{% static 'assets/banner.png' %}"></a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-10">
@@ -36,7 +38,7 @@
                     <div class="card-body ">
                         <div class="row">
                             <div class="col-3">
-                                <img class="img-fluid rounded-3" src="{% static 'assets/place_holder.png' %}" />
+                                <img class="img-fluid rounded-3" src="{% static 'champs/' %}{{champname}}.png"/>
                             </div>
                             <div class="col-9" id="counters">
                                 <div class="row">

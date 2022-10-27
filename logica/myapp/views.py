@@ -55,4 +55,4 @@ def champ(request, champname):
     #filtrar sus counters, esto ultimo todavia no es posible por datos de la base de datos, pero de momento
     #estaria bien que se muestren solo la imagen del champ que se eligio
     
-    return render (request,"champ.html")
+    return render (request,"champ.html", {"champname":champname})
