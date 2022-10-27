@@ -39,7 +39,7 @@
                             <div class="row justify-content-center">
                                 {% for champ in row %}
                                     <div class="col-2">
-                                        <a id={{champ}} class="btn" href="/champ " role="button">
+                                        <a id={{champ}} class="btn" href="champs/{{champ}}" role="button">
                                             <img class="rounded-4 img-fluid" src="{% static 'champs/' %}{{champ}}.png">
                                         </a>
                                     </div>

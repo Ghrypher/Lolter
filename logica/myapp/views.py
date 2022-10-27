@@ -49,5 +49,10 @@ def index(request):
     }
     )
 
-def champ(request):
+def champ(request, champname):
+    print (champname)
+    #TODO se tendria que filtrar la id de un champ mediante el champname, y, mediante esa id, se podrian
+    #filtrar sus counters, esto ultimo todavia no es posible por datos de la base de datos, pero de momento
+    #estaria bien que se muestren solo la imagen del champ que se eligio
+    
     return render (request,"champ.html")

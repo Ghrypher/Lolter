@@ -5,6 +5,5 @@ from . import views
 #de mi pagina en una misma lista enorme ubicada en mysite/urls.py
 urlpatterns = [
     path('', views.index),
-    path('index/', views.index),
-    path('champ/', views.champ),
+    path('champs/<str:champname>', views.champ),
 ]
