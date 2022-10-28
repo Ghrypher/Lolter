@@ -64,12 +64,13 @@ def champ(request, champname):
         id_champ_counter = list(Champ.objects.filter(id = id_counter[i][0]).values_list("nombre"))
         lista_counters.append(id_champ_counter)
         lista_counters[i].append(id_counter[i][1])
+    lista_roles.pop()
     print("=" * 100)
-    print (id_champ)
-    print(lista_counters[0][1])
-    print(lista_roles)
+    print(champname)
+    print(lista_counters[0][0][0])
+    print(lista_roles[0][0])
     print("=" * 100)
     #TODO Ahora se almacena el nombre, el rol, y la descripcion de los champs, y se muestran en la pagina
     #la imagen haciendo uso del nombre, y la descripcion, faltaria que se marque cual es el rol del champ
     #elegido, y a que linea pertenecen sus counters
-    return render (request,"champ.html", {"champname":champname, "counters":lista_counters})
+    return render (request,"champ.html", {"champname":champname, "counters":lista_counters, "roles":lista_roles})

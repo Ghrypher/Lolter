@@ -21,9 +21,11 @@
                     <div class="card-header bg-dark">
                         <div class="row" >
                             <div class="col-8 row">
+                                {% for rol in roles %}
                                 <div class="col-1">
-                                    <img class="img-fluid" src="{% static 'assets/top_lane.png' %}" />
+                                    <img class="img-fluid" src="{% static 'assets/' %}{{rol.0}}.png" />
                                 </div>
+                                {% endfor %}
                                 <div class="col-4">
                                     <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="Top Laner">
                                 </div>
