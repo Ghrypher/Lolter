@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from myapp.models import Champ, Champrol, Counter
+from myapp.models import Champ, Champrol, Counter, Roles
 from .forms import buscar
 
 #aca creo las diferentes vistas o pantallas de mi pagina, que en nuestro caso serian 2, la pagina 
@@ -51,18 +51,25 @@ def index(request):
 
 def champ(request, champname):
     print (champname)
-    #TODO se tendria que filtrar la id de un champ mediante el champname, y, mediante esa id, se podrian
-    #filtrar sus counters, esto ultimo todavia no es posible por datos de la base de datos, pero de momento
-    #estaria bien que se muestren solo la imagen del champ que se eligio
     id_champ = list(Champ.objects.filter(nombre = champname))
+    id_rol = list(Champrol.objects.filter(Champ_id = id_champ[0]).values_list("Rol_id"))
+    
     id_counter = list(Counter.objects.filter(champ_selected_id = id_champ[0]).values_list("champ_counter_id", "description"))
-    nombre_counter = []
-    for counter in id_counter:
-        id_champ_counter = list(Champ.objects.filter(id = counter[0]).values_list("nombre"))
-        nombre_counter.append(id_champ_counter[0][0])
+    lista_counters = []
+    lista_roles = []
+    for rol in id_rol:
+        roles = list(Roles.objects.filter(id = rol[0]).values_list("Rol"))
+        lista_roles.append(roles[0])
+    for i in range(3):
+        id_champ_counter = list(Champ.objects.filter(id = id_counter[i][0]).values_list("nombre"))
+        lista_counters.append(id_champ_counter)
+        lista_counters[i].append(id_counter[i][1])
     print("=" * 100)
     print (id_champ)
-    print(id_counter)
-    print(nombre_counter)
+    print(lista_counters[0][1])
+    print(lista_roles)
     print("=" * 100)
-    return render (request,"champ.html", {"champname":champname, "counters":id_counter})
+    #TODO Ahora se almacena el nombre, el rol, y la descripcion de los champs, y se muestran en la pagina
+    #la imagen haciendo uso del nombre, y la descripcion, faltaria que se marque cual es el rol del champ
+    #elegido, y a que linea pertenecen sus counters
+    return render (request,"champ.html", {"champname":champname, "counters":lista_counters})
