@@ -12,7 +12,8 @@ class Champ(models.Model):
 
 
 class Counter(models.Model):
-    Champ = models.ForeignKey(Champ,on_delete=models.CASCADE)
+    champ_selected = models.ForeignKey(Champ,on_delete=models.CASCADE, related_name="counters")
+    champ_counter = models.ForeignKey(Champ,on_delete=models.CASCADE, related_name="champ")
     description = models.TextField()
 
 class Roles(models.Model):
