@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from myapp.models import Champ, Champrol, Roles
+from myapp.models import Champ, Champrol, Counter
 from .forms import buscar
 
 #aca creo las diferentes vistas o pantallas de mi pagina, que en nuestro caso serian 2, la pagina 
@@ -54,5 +54,15 @@ def champ(request, champname):
     #TODO se tendria que filtrar la id de un champ mediante el champname, y, mediante esa id, se podrian
     #filtrar sus counters, esto ultimo todavia no es posible por datos de la base de datos, pero de momento
     #estaria bien que se muestren solo la imagen del champ que se eligio
-    
-    return render (request,"champ.html", {"champname":champname})
+    id_champ = list(Champ.objects.filter(nombre = champname))
+    id_counter = list(Counter.objects.filter(champ_selected_id = id_champ[0]).values_list("champ_counter_id", "description"))
+    nombre_counter = []
+    for counter in id_counter:
+        id_champ_counter = list(Champ.objects.filter(id = counter[0]).values_list("nombre"))
+        nombre_counter.append(id_champ_counter[0][0])
+    print("=" * 100)
+    print (id_champ)
+    print(id_counter)
+    print(nombre_counter)
+    print("=" * 100)
+    return render (request,"champ.html", {"champname":champname, "counters":id_counter})
