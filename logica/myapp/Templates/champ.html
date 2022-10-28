@@ -41,15 +41,16 @@
                                 <img class="img-fluid rounded-3" src="{% static 'champs_banners/' %}{{champname}}.png"/>
                             </div>
                             <div class="col-9" id="counters">
-                                <div class="row">
-                                    <div class="col-2">
-                                        <button id="counter" class="btn closing"><img class="img-fluid rounded-5" src="{% static 'assets/place_holder.png' %}" /></button>
+                                {% for counter in counters %}
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <button id="counter" class="btn closing"><img class="img-fluid rounded-5" src="{% static 'assets/'%}{{counter[0]}}.png" /></button>
+                                        </div>
+                                        <div class="col-10">
+                                            <label class="form-control">{{counter[1]}}</label>
+                                        </div>
                                     </div>
-                                    <div class="col-10">
-                                        <label class="form-control"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, quam atque cum ullam et consequuntur vel odio, rem recusandae voluptas velit eos perferendis. Inventore quo accusamus iusto dolorem. Nostrum perferendis, autem cumque placeat amet animi et dignissimos molestias. Unde, quis accusantium? Eaque laboriosam quia, minima necessitatibus, dolores id hic ullam illo labore odio assumenda ex rem ad! Tempora nemo veniam blanditiis voluptatum distinctio explicabo consectetur dicta natus. Voluptates quasi, eligendi reprehenderit quidem nihil illo eum consectetur! Temporibus maiores corporis mollitia accusamus magni et alias laborum veniam voluptates officiis explicabo iste quae recusandae veritatis maxime illum velit ipsam vitae, asperiores vel?
-                                        </label>
-                                    </div>
-                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
