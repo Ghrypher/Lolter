@@ -1,0 +1,51 @@
+.bg-color-1{
+    background-color : #00040E ;
+}
+.bg-color-2{
+    background-color : #101525 ;
+}
+.bg-color-3{
+    background-color : #101010 ;
+}
+.bg-color-4{
+    background-color : #00040E ;
+}
+
+.no-padding-x{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.no-margin-x{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.champ-icon{
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+}
+
+.search input[type=text]{
+    width:300px;
+    height:25px;
+    border-radius:25px;
+    border: none;
+}
+     
+.search{
+    float:right;
+    margin:7px;
+}
+     
+.search button{
+    background-color: #0074D9;
+    color: #f2f2f2;
+    float: right;
+    padding: 5px 10px;
+    margin-right: 16px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+}

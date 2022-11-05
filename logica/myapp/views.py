@@ -20,29 +20,14 @@ def index(request):
     champsPorRolYNombre = list(Champ.objects.filter(nombre__startswith = nombreChamp, id__in = champsPorRol).values_list("nombre"))
     listaNombreChamps = []
     for champ in champsPorRolYNombre:
+        print (champ)
         listaNombreChamps.append(champ[0])
     print ("="*100)
     print (listaNombreChamps)
     print ("="*100)
-    listaChampsConFormato = []
-    orden = 0
-    fila = 6
-    columna = len(listaNombreChamps)//6
-    for y in range(columna):
-        columnaFormateada = []
-        for x in range(fila):
-            columnaFormateada.append(listaNombreChamps[orden])
-            orden += 1
-        listaChampsConFormato.append(columnaFormateada)
-
-    columnaFormateada = []
-    for x in range(len(listaNombreChamps) - columna * 6):
-        columnaFormateada.append(listaNombreChamps[orden])
-        orden += 1
-    listaChampsConFormato.append(columnaFormateada)
     return render (request,"index.html",
     {
-       "champs":(listaChampsConFormato),
+       "champs":(listaNombreChamps),
        "buscar":buscar()
 
     }
@@ -67,29 +52,11 @@ def filter(request,lane):
     print ("="*100)
     print (listaNombreChamps)
     print ("="*100)
-    listaChampsConFormato = []
-    orden = 0
-    fila = 6
-    columna = len(listaNombreChamps)//6
-    for y in range(columna):
-        columnaFormateada = []
-        for x in range(fila):
-            columnaFormateada.append(listaNombreChamps[orden])
-            orden += 1
-        listaChampsConFormato.append(columnaFormateada)
-
-    columnaFormateada = []
-    for x in range(len(listaNombreChamps) - columna * 6):
-        columnaFormateada.append(listaNombreChamps[orden])
-        orden += 1
-    listaChampsConFormato.append(columnaFormateada)
-
-
 
 
     return render (request,"index.html",
     {
-       "champs":(listaChampsConFormato),
+       "champs":(listaNombreChamps),
        "buscar":buscar()
 
     }
