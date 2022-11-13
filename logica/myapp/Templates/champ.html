@@ -4,62 +4,128 @@
         <title>LolTer</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="{% static 'styles\style.css' %}" rel="stylesheet">
+
     </head>
-    <body class="bg-dark bg-gradient " style="overflow-x: hidden;">
+    <body class="bg-color-1" style="overflow-x: hidden;">
         <div class="row justify-content-center">
             <div class="col-6 ">
-                <div class="card bg-dark" style="margin-top: 50px;">
-                    <div class="row justify-content-center">
-                        <div class="card bg-light col-11">
-                            <a role="button" id="banner" href="/" class=" btn-light rounded-4"><img class="mx-auto d-block" src="{% static 'assets/banner.png' %}"></a>
-                        </div>
-                    </div>
+                <div class="card bg-light mt-4 mb-3 ">
+                    <a role="button" id="banner" href="/" class=" btn-light rounded-4"><img class="mx-auto d-block" src="{% static 'assets/banner.png' %}"></a>
                 </div>
             </div>
+        </div>
+        <div class="row justify-content-center">
             <div class="col-10">
-                <div class="card bg-secondary">
-                    <div class="card-header bg-dark">
+                <div class="card bg-color-2" >
+                    <div class="card-header">
                         <div class="row" >
-                            <div class="col-8 row">
-                                {% for rol in roles %}
-                                <div class="col-1">
-                                    <img class="img-fluid" src="{% static 'assets/' %}{{rol.0}}.png" />
-                                </div>
-                                {% endfor %}
-                                <div class="col-4">
-                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="Top Laner">
-                                </div>
-
-                            </div>
-
-                        <div class=" col-4 justify-content-right ">
-                                <input class="form-control" type ="text"  href="#" placeholder="buscar champ">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body ">
-                        <div class="row">
-                            <div class="col-3">
-                                <img class="img-fluid rounded-3" src="{% static 'champs_banners/' %}{{champname}}.png"/>
-                            </div>
-                            <div class="col-9" id="counters">
-                                {% for counter in counters %}
-                                    <div class="row mb-2">
-                                        <div class="col-2">
-                                            <button id="counter" class="btn closing"><img class="img-fluid rounded-5" src="{% static 'champs/'%}{{counter.0.0}}.png" /></button>
+                            <div class="col-4 justify-content-start">
+                                <div class="card bg-color-3 border border-light">
+                                    <div class="row justify-content-center py-3">
+                                        <div class=" col-2">
+                                            <a role = "button" id="top" class="btn closing btn-dark"  href="rol_top_lane"><img class="img-fluid" src="{% static 'icons/top_lane.png' %}" /></a>
                                         </div>
-                                        <div class="col-10">
-                                            <label class="form-control">{{counter.1}}</label>
+                                        <div class=" col-2">
+                                            <a role = "button" id="jungla" class="btn closing btn-dark" href="rol_jungla"><img class="img-fluid" src="{% static 'icons/jungla.png' %}" /></a>
+                                        </div>
+                                        <div class=" col-2">
+                                            <a role = "button" id="mid" class="btn closing btn-dark" href="rol_mid_lane"><img class="img-fluid" src="{% static 'icons/mid_lane.png' %}" /></a>
+                                        </div>
+                                        <div class=" col-2">
+                                            <a role = "button" id="adc" class="btn closing btn-dark"  href="rol_bot_lane_adc"><img class="img-fluid" src="{% static 'icons/bot_lane_adc.png' %}" /></a>
+                                        </div>
+                                        <div class=" col-2">
+                                            <a role = "button" id="support" class="btn closing btn-dark"  href="rol_bot_lane_support"><img class="img-fluid" src="{% static 'icons/bot_lane_support.png' %}" /></a>    
                                         </div>
                                     </div>
-                                {% endfor %}
+                                </div>
+                            </div>
+                            <div class=" col-4 offset-4 justify-content-end ">
+                                <div class="card bg-color-3 border border-light">
+                                    <div class="align-items-end">
+                                        <div class="form-floating pt-3">
+                                            <form>
+                                                <input type="text" class="form-control rounded-5" name ="Nombre" id="Nombre" placeholder="Buscar champ">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="card-body bg-color-3">
+                        <div class="row justify-content-center">
+                            <div class="col-3 pb-4">
+                                <div class="card-body rounded-4 bg-color-2 border border-light mb-4">
+                                    <div class="row justify-content-center">
+                                        <div id={{champ.0}} class=" mx-auto champ-icon" >
+                                            <img class=" champ-icon rounded-4" src="{% static 'champs_banners/' %}{{champ.0}}.png">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body rounded-4 bg-color-2 border border-light">
+                                    <div class="row justify-content-center">
+                                        <div class="row justify-content-center">
+                                            <div class="col-10 py-2 text-center">
+                                                <label class="text-light " style="font-size: 64px;"> {{champ.0}}</label>
+
+                                                <div class="card bg-color-3 border border-light my-3">
+                                                    <div class="row justify-content-center py-3">
+                                                        {% for rol in champ.1 %}
+                                                        <div class=" col-3 mx-1">
+                                                            <img class="img-fluid" src="{% static 'assets/' %}{{rol}}.png" />
+                                                        </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+
+                                                <div class ="row justify-content-center mt-4">
+                                                    <div class=" col-3 mx-1">
+                                                        <img class="img-fluid rounded-2" src="{% static 'abilities/' %}{{champ.0}}_q.png"/>
+                                                    </div>
+                                                    <div class=" col-3 mx-1">
+                                                        <img class="img-fluid rounded-2" src="{% static 'abilities/' %}{{champ.0}}_pasiva.png"/>
+                                                    </div>
+                                                    <div class=" col-3 mx-1">
+                                                        <img class="img-fluid rounded-2" src="{% static 'abilities/' %}{{champ.0}}_e.png"/>
+                                                    </div>
+
+                                                    <div class=" col-3 mx-3 mt-2">
+                                                        <img class="img-fluid rounded-2" src="{% static 'abilities/' %}{{champ.0}}_w.png"/>
+                                                    </div>
+                                                    <div class=" col-3 mx-3 mt-2">
+                                                        <img class="img-fluid rounded-2" src="{% static 'abilities/' %}{{champ.0}}_r.png"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-9 pb-4 float-end">
+                                <div class="card-body rounded-4 bg-color-2 border border-light">
+                                    <div class="row justify-content-center">
+                                        {% for counter in champ.2%}
+                                        <div class="card bg-color-3 border border-light col-11 mb-3">
+                                            <div class="row justify-content-center py-3">
+                                                <div class=" col-2">
+                                                    <img class="img-fluid" src="{% static 'champs/' %}{{counter.0}}.png"/>
+                                                </div>
+                                                <div class=" col-10">
+                                                    <div class="card "><p>{{counter.1}}</p></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>     
                 </div>
-                
             </div>
         </div>
     </body>
-    
 </html>

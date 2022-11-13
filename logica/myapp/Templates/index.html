@@ -57,37 +57,33 @@
                     <div class="card-body bg-color-3">
                         <div class="row justify-content-center">
 
-                                {% for champ in champs %}
+                                {% for champ in listaChamps %}
                                 <div class="col-2 pb-4">
                                     <div class="card-body rounded-4 bg-color-2 border border-light">
                                         <div class="row justify-content-center">
                                             <div>
-                                                <a id={{champ}} class="btn mx-auto champ-icon" href="champs/{{champ}}" role="button">
-                                                    <img class=" champ-icon rounded-4" src="{% static 'champs/' %}{{champ}}.png">
+                                                <a id={{champ.0}} class="btn mx-auto champ-icon" href="champs/{{champ.0}}" role="button">
+                                                    <img class=" champ-icon rounded-4" src="{% static 'champs/' %}{{champ.0}}.png">
                                                 </a>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="row justify-content-center pb-4">
-                                            <div class="col-3">
-                                                <img class="rounded-4 img-fluid" src="{% static 'assets/bot_lane_adc.png' %}">
-                                            </div>
-                                            <div class="col-3">
-                                                <img class="rounded-4 img-fluid" src="{% static 'assets/mid_lane.png' %}">
-                                            </div>
-                                            <div class="col-3">
-                                                <img class="rounded-4 img-fluid" src="{% static 'assets/top_lane.png' %}">
-                                            </div>
+                                            {% for rol in champ.1 %}
+                                                <div class="col-3">
+                                                    <img class="rounded-4 img-fluid" src="{% static 'assets/' %}{{rol}}.png">
+                                                </div>
+                                            {% endfor %}
                                         </div>
                                         <div class="row no-margin-x">
                                             <div class="col-4 no-padding-x">
-                                                <img class="rounded-start img-fluid" src="{% static 'champs/ahri.png' %}">
+                                                <img class="rounded-start img-fluid" src="{% static 'champs/' %}{{champ.2.0}}.png">
                                             </div>
                                             <div class="col-4 no-padding-x">
-                                                <img class="img-fluid" src="{% static 'champs/aphelios.png' %}">
+                                                <img class="img-fluid" src="{% static 'champs/' %}{{champ.2.1}}.png">
                                             </div>
                                             <div class="col-4 no-padding-x">
-                                                <img class="rounded-end img-fluid " src="{% static 'champs/akali.png' %}">    
+                                                <img class="rounded-end img-fluid " src="{% static 'champs/' %}{{champ.2.2}}.png">    
                                             </div>
                                         </div>
                                     </div>
