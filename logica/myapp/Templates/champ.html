@@ -21,28 +21,28 @@
                 <div class="card bg-color-2" >
                     <div class="card-header">
                         <div class="row" >
-                            <div class="col-4 justify-content-start">
+                            <div class="col-5 justify-content-start">
                                 <div class="card bg-color-3 border border-light">
                                     <div class="row justify-content-center py-3">
                                         <div class=" col-2">
-                                            <a role = "button" id="top" class="btn closing btn-dark"  href="rol_top_lane"><img class="img-fluid" src="{% static 'icons/top_lane.png' %}" /></a>
+                                            <a role = "button" id="top" class="btn closing btn-dark"  href="/?rol=top_lane"><img class="img-fluid" src="{% static 'icons/top_lane.png' %}" /></a>
                                         </div>
                                         <div class=" col-2">
-                                            <a role = "button" id="jungla" class="btn closing btn-dark" href="rol_jungla"><img class="img-fluid" src="{% static 'icons/jungla.png' %}" /></a>
+                                            <a role = "button" id="jungla" class="btn closing btn-dark" href="/?rol=jungla"><img class="img-fluid" src="{% static 'icons/jungla.png' %}" /></a>
                                         </div>
                                         <div class=" col-2">
-                                            <a role = "button" id="mid" class="btn closing btn-dark" href="rol_mid_lane"><img class="img-fluid" src="{% static 'icons/mid_lane.png' %}" /></a>
+                                            <a role = "button" id="mid" class="btn closing btn-dark" href="/?rol=mid_lane"><img class="img-fluid" src="{% static 'icons/mid_lane.png' %}" /></a>
                                         </div>
                                         <div class=" col-2">
-                                            <a role = "button" id="adc" class="btn closing btn-dark"  href="rol_bot_lane_adc"><img class="img-fluid" src="{% static 'icons/bot_lane_adc.png' %}" /></a>
+                                            <a role = "button" id="adc" class="btn closing btn-dark"  href="/?rol=bot_lane_adc"><img class="img-fluid" src="{% static 'icons/bot_lane_adc.png' %}" /></a>
                                         </div>
                                         <div class=" col-2">
-                                            <a role = "button" id="support" class="btn closing btn-dark"  href="rol_bot_lane_support"><img class="img-fluid" src="{% static 'icons/bot_lane_support.png' %}" /></a>    
+                                            <a role = "button" id="support" class="btn closing btn-dark"  href="/?rol=bot_lane_support"><img class="img-fluid" src="{% static 'icons/bot_lane_support.png' %}" /></a>    
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class=" col-4 offset-4 justify-content-end ">
+                            <div class=" col-4 offset-3 justify-content-end ">
                                 <div class="card bg-color-3 border border-light">
                                     <div class="align-items-end">
                                         <div class="form-floating pt-3">
@@ -61,7 +61,7 @@
                                 <div class="card-body rounded-4 bg-color-2 border border-light mb-4">
                                     <div class="row justify-content-center">
                                         <div id={{champ.0}} class=" mx-auto champ-icon" >
-                                            <img class=" champ-icon rounded-4" src="{% static 'champs_banners/' %}{{champ.0}}.png">
+                                            <img class=" champ-icon rounded-4" src="{% static 'champs_banners/' %}{{champ.0}}.jpg">
                                         </div>
                                     </div>
                                 </div>
@@ -69,8 +69,9 @@
                                     <div class="row justify-content-center">
                                         <div class="row justify-content-center">
                                             <div class="col-10 py-2 text-center">
-                                                <label class="text-light " style="font-size: 64px;"> {{champ.0}}</label>
-
+                                                <div>
+                                                    <label class="text-light " style="font-size: 64px; max-width: 100%;"> {{champ.3}}</label>
+                                                </div>
                                                 <div class="card bg-color-3 border border-light my-3">
                                                     <div class="row justify-content-center py-3">
                                                         {% for rol in champ.1 %}
@@ -83,20 +84,20 @@
 
                                                 <div class ="row justify-content-center mt-4">
                                                     <div class=" col-3 mx-1">
-                                                        <img class="img-fluid rounded-2" src="{% static 'abilities/' %}{{champ.0}}_q.png"/>
+                                                        <img class="img-fluid rounded-2" src="{% static 'abilities/' %}{{champ.0}}_q.jpg"/>
                                                     </div>
                                                     <div class=" col-3 mx-1">
-                                                        <img class="img-fluid rounded-2" src="{% static 'abilities/' %}{{champ.0}}_pasiva.png"/>
+                                                        <img class="img-fluid rounded-2" src="{% static 'abilities/' %}{{champ.0}}_pasiva.jpg"/>
                                                     </div>
                                                     <div class=" col-3 mx-1">
-                                                        <img class="img-fluid rounded-2" src="{% static 'abilities/' %}{{champ.0}}_e.png"/>
+                                                        <img class="img-fluid rounded-2" src="{% static 'abilities/' %}{{champ.0}}_e.jpg"/>
                                                     </div>
 
                                                     <div class=" col-3 mx-3 mt-2">
-                                                        <img class="img-fluid rounded-2" src="{% static 'abilities/' %}{{champ.0}}_w.png"/>
+                                                        <img class="img-fluid rounded-2" src="{% static 'abilities/' %}{{champ.0}}_w.jpg"/>
                                                     </div>
                                                     <div class=" col-3 mx-3 mt-2">
-                                                        <img class="img-fluid rounded-2" src="{% static 'abilities/' %}{{champ.0}}_r.png"/>
+                                                        <img class="img-fluid rounded-2" src="{% static 'abilities/' %}{{champ.0}}_r.jpg"/>
                                                     </div>
                                                 </div>
                                             </div>

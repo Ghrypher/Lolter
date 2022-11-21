@@ -92,13 +92,19 @@ def obtenerChamps(champ, rol = None, busqueda = None):
             
             countersCompletos = []
             for i in range(3):
-                tempList = []
-                tempList.append(counters[i])
-                tempList.append(descripciones[i])
+                counter = []
+                counter.append(counters[i])
+                counter.append(descripciones[i])
 
-                countersCompletos.append(tempList)
+                countersCompletos.append(counter)
 
             champ.append(countersCompletos)   
+            if "_" in entry[1]:
+                nombreDisplay = entry[1].replace("_"," ")
+                champ.append(nombreDisplay)
+            else:
+                nombreDisplay = entry[1]
+                champ.append(nombreDisplay)
 
         return champ     
     if champ == 'Filtrar' or champ == 'All':
