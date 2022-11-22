@@ -1,24 +1,20 @@
+databases:
+  - name: mysite
+    databaseName: mysite
+    user: mysite
+
 services:
   - type: web
-    name: blitzapp
-    env: node
-    plan: free
-    buildCommand:
-      yarn --frozen-lockfile --prod=false &&
-      blitz prisma generate &&
-      blitz build &&
-      blitz prisma migrate deploy
-    startCommand: blitz start -p ${PORT}
+    name: mysite
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn mysite.wsgi:application"
     envVars:
-      - key: NODE_ENV
-        value: production
       - key: /logica/db.sqlite3
         fromDatabase:
-          name: blitzapp-db
+          name: mysite
           property: connectionString
       - key: django-insecure-e+n3l%b3z!exvk$&dy0iwlzg)%^t2^u+xr9)81=88v#esu$3o@
         generateValue: true
-
-databases:
-  - name: blitzapp-db
-    plan: free
+      - key: WEB_CONCURRENCY
+        value: 4
